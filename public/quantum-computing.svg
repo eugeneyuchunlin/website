@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Processor Base -->
+  <rect x="100" y="100" width="300" height="300" rx="40" ry="40" fill="none" stroke="black" stroke-width="20"/>
+  
+  <!-- Top Pins -->
+  <path d="M150,100 L150,60 A20,20 0 0 1 190,60 L190,100" fill="none" stroke="black" stroke-width="20" stroke-linecap="round"/>
+  <path d="M230,100 L230,60 A20,20 0 0 1 270,60 L270,100" fill="none" stroke="black" stroke-width="20" stroke-linecap="round"/>
+  <path d="M310,100 L310,60 A20,20 0 0 1 350,60 L350,100" fill="none" stroke="black" stroke-width="20" stroke-linecap="round"/>
+  
+  <!-- Bottom Pins -->
+  <path d="M150,400 L150,440 A20,20 0 0 0 190,440 L190,400" fill="none" stroke="black" stroke-width="20" stroke-linecap="round"/>
+  <path d="M230,400 L230,440 A20,20 0 0 0 270,440 L270,400" fill="none" stroke="black" stroke-width="20" stroke-linecap="round"/>
+  <path d="M310,400 L310,440 A20,20 0 0 0 350,440 L350,400" fill="none" stroke="black" stroke-width="20" stroke-linecap="round"/>
+  
+  <!-- Left Pins -->
+  <path d="M100,150 L60,150 A20,20 0 0 0 60,190 L100,190" fill="none" stroke="black" stroke-width="20" stroke-linecap="round"/>
+  <path d="M100,230 L60,230 A20,20 0 0 0 60,270 L100,270" fill="none" stroke="black" stroke-width="20" stroke-linecap="round"/>
+  <path d="M100,310 L60,310 A20,20 0 0 0 60,350 L100,350" fill="none" stroke="black" stroke-width="20" stroke-linecap="round"/>
+  
+  <!-- Right Pins -->
+  <path d="M400,150 L440,150 A20,20 0 0 1 440,190 L400,190" fill="none" stroke="black" stroke-width="20" stroke-linecap="round"/>
+  <path d="M400,230 L440,230 A20,20 0 0 1 440,270 L400,270" fill="none" stroke="black" stroke-width="20" stroke-linecap="round"/>
+  <path d="M400,310 L440,310 A20,20 0 0 1 440,350 L400,350" fill="none" stroke="black" stroke-width="20" stroke-linecap="round"/>
+  
+  <!-- Atom Symbol -->
+  <circle cx="250" cy="250" r="20" fill="black"/>
+  
+  <!-- Electron orbits -->
+  <ellipse cx="250" cy="250" rx="80" ry="40" fill="none" stroke="black" stroke-width="15" transform="rotate(0, 250, 250)"/>
+  <ellipse cx="250" cy="250" rx="80" ry="40" fill="none" stroke="black" stroke-width="15" transform="rotate(60, 250, 250)"/>
+  <ellipse cx="250" cy="250" rx="80" ry="40" fill="none" stroke="black" stroke-width="15" transform="rotate(-60, 250, 250)"/>
+</svg>

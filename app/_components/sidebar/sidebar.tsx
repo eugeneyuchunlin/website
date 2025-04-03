@@ -1,5 +1,5 @@
 'use client'
-import Footer from './sidebar/footer';
+import Footer from './footer';
 import React, { useState, useEffect, useRef } from 'react';
 
 
@@ -50,7 +50,7 @@ export default function Sidebar() {
       {/* Mobile Menu Toggle */}
       <button 
         ref={btnRef}
-        className="md:hidden  z-50 fixed top-4 left-2"
+        className="md:hidden z-50 fixed top-4 left-2"
         onClick={() => {
           setIsOpen(!isOpen);
         }}
@@ -63,8 +63,8 @@ export default function Sidebar() {
       <div 
         ref={sidebarRef}
         className={`
-          fixed top-0 left-0 h-full w-64 bg-gray-100 text-black 
-          transform transition-transform duration-300 
+          fixed top-0 left-0 h-full text-black 
+          transform transition-transform duration-300
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
           md:translate-x-0 md:relative z-40
         `}
