@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 function MenuItem({url, name} : {url: string; name: string}) {
   return (
-    <li><a href={url}>{name}</a></li>
+    <li><a href={url} className="text-center text-lg">{name}</a></li>
   )
 
 }
@@ -63,18 +63,22 @@ export default function Sidebar() {
       <div 
         ref={sidebarRef}
         className={`
-          fixed top-0 left-0 h-full text-black 
+          fixed top-0 left-0 h-full text-black bg-gray-100
           transform transition-transform duration-300
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
           md:translate-x-0 md:relative z-40
         `}
       >
-        <div className="p-4 pt-20">
-          <div className="flex items-center justify-center mb-4">
-            <div className="avatar">
+        <div className="p-4 pt-20 flex flex-col items-center">
+          <div className="flex flex-col justify-center mb-4">
+            <div className="avatar justify-center mb-4">
               <div className="w-32 rounded-full brightness-80">
                 <img src="/avatar.jpeg" />
-              </div>
+              </div> 
+            </div>
+            <div className="text-center justify-center">
+                <h1 className="text-2xl font-mono mt-2">Eugene Lin</h1>
+                <h1 className="text-2xl font-mono mt-2">林友鈞</h1>
             </div>
           </div>
           
@@ -86,7 +90,7 @@ export default function Sidebar() {
           </ul>
         </div>
 
-        <div className="absolute bottom-20 w-full">
+        <div className="absolute bottom-20 w-full flex justify-center">
           <Footer />
         </div>
       </div>
