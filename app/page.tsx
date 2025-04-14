@@ -1,72 +1,16 @@
-'use client'
-
-import { useEffect, useState } from "react";
 import Content from "@/app/_components/renderer/content";
 import Paragraph from "@/app/_components/renderer/paragraph";
+import { Suspense } from "react";
+import {LoadingBio, LoadingMisc, LoadingNews} from "./_components/home/loading";
+import News from "@/app/_components/home/news";
+import Misc from "@/app/_components/home/misc";
 
-function Bio(){
+async function Bio(){
   
   return (
     <div className="flex flex-col mb-10">
       <h1 className="text-3xl font-bold mb-3">👋Hi, I'm Eugene Lin</h1>
-        <Content API="/api/content/1d0fc1f89ce3800cb65cf1b7970d6048" />
-    </div>
-  ); 
-}
-
-function NewsItem({date, rich_text}: {date: string, rich_text: any}){
-  console.log("rich_text", rich_text);
-  return (
-    <div className="mb-4">
-      <div className="text-sm text-gray-500">{date} </div>
-      <div className="text-lg">
-        <Paragraph richText={rich_text} />
-      </div>
-    </div>
-  );
-}
-
-function News(){
-  // const newsItems = []
-  // const regex = /-\s*\*\*(\d{4}\/\d{1,2}\/\d{1,2})\*\*:\s*(.*)/g;
-
-  // let match;
-  // while((match = regex.exec(content)) !== null) {
-  //   newsItems.push({
-  //     date: marked.parse(match[1], { async: false }),
-  //     description: marked.parse(match[2], { async: false })
-  //   });
-  // }
-
-  // console.log(content);
-  const [newsData, setNewsData] = useState<{ date: string; description: any }[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/api/database/1d0fc1f89ce380ac9d99fde7060ea551");
-      const data = await res.json();
-      console.log("data", data);
-      const news = data.map((item: any) => {
-        return {
-          date: item.properties.Date,
-          description: item.properties.Description
-        } 
-      });
-      console.log("news", news);
-      setNewsData(news);
-    };
-    fetchData();
-  }, []);
- 
-  return (
-    <div className="flex flex-col">
-      <h1 className="text-3xl font-bold">📰News</h1>
-      <div className="flex flex-col mb-10">
-        {newsData.map((item, index) => (
-            <NewsItem key={index} date={item.date} rich_text={item.description} />
-          ))
-        }
-      </div>
+        <Content API={process.env.BIO_ID}/>
     </div>
   ); 
 }
@@ -110,16 +54,34 @@ function Background (){
 }
 
 
-export default function Home() {
-
+export default async function Home() {
   return (
     <div className="relative">
-      {/* <BubbleAnimation /> */}
       <div className="items-center min-h-screen bg-gray-100/30 lg:pl-40 lg:pr-40 p-10 pt-20">
-        <Bio/>
+        <Suspense  fallback={<LoadingBio />}>
+          <Bio/>
+        </Suspense>
         <Background />
-        <News/>
+
+        
+
+        <div className="flex flex-col">
+          <h1 className="text-3xl font-bold">📰News</h1>
+          <div className="flex flex-col mb-10">
+            <Suspense fallback={<LoadingNews />}>
+              <News/>
+            </Suspense>
+          </div>
+        </div>
+
+        <div className="flex flex-col mb-10">
+          <h1 className="text-3xl font-bold mb-3">🎶Misc</h1>
+          <Suspense fallback={<LoadingMisc />}>
+            <Misc />
+          </Suspense>
+        </div>
       </div>
+        
     </div>
   );
 }

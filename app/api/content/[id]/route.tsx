@@ -1,7 +1,7 @@
 import { cache } from 'react';
 import type { NextRequest } from 'next/server';
 import { Client } from '@notionhq/client';
-import { processRichText } from '@/app/_components/utility/utils';
+import { processRichText } from '@/lib/utils';
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 

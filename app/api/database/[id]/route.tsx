@@ -1,7 +1,7 @@
 import { Client } from '@notionhq/client';
 import { cache } from 'react';
 import type { NextRequest } from 'next/server';
-import { processProperties } from '@/app/_components/utility/utils';
+import { processProperties } from '@/lib/utils';
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 export const revalidate = 3600; // 1 hour
