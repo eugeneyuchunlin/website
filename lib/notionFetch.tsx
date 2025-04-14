@@ -1,6 +1,7 @@
-import { cache } from 'react';
 import { notion } from "@/lib/notion";
-import { processRichText } from '@/lib/utils';
+import { cache } from 'react';
+import { processRichText, processProperties } from '@/lib/utils';
+import type { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
 export const fetchNotionBlock = cache(async (id: string | undefined) => {
     const response = await notion.blocks.children.list({
@@ -20,3 +21,26 @@ export const fetchNotionBlock = cache(async (id: string | undefined) => {
     })
     return data;
   });
+
+
+export const fetchNotionDataBase = cache(async (id: string)  => {
+    const res = await notion.databases.query({
+        database_id: id,
+        sorts: [
+            {
+                property: "Date",
+                direction: "descending",
+            },
+        ],
+    });
+
+    const data = await res.results.map((block) => {
+        const page = block as PageObjectResponse;
+        return {
+            id: page.id,
+            properties: processProperties(page.properties),
+        }
+    });
+
+    return data;
+});

@@ -5,6 +5,9 @@ import News from "@/app/_components/home/news";
 import Misc from "@/app/_components/home/misc";
 import Image from "next/image";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 60; // 1 minute
+
 async function Bio(){
   
   return (

@@ -44,3 +44,7 @@ export type PropertyObjectType =
     | RichTextItemResponse[]
     | PartialSelectResponse[]
     | string[]
+
+export type PropertyObjectMap = {
+      [key: string]: PropertyObjectType;
+    };

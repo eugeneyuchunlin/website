@@ -1,10 +1,7 @@
+import { fetchNotionDataBase } from "@/lib/notionFetch";
 import Paragraph from "../renderer/paragraph";
-import { Client } from "@notionhq/client";
-import { processProperties } from "@/lib/utils";
-import type { RichText, PropertyObjectType } from "@/app/_components/utility/types";
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { RichText, PropertyObjectType} from "@/app/_components/utility/types";
 
-const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 function NewsItem({date, rich_text}: {date: PropertyObjectType, rich_text: PropertyObjectType}) {
     return (
@@ -18,24 +15,7 @@ function NewsItem({date, rich_text}: {date: PropertyObjectType, rich_text: Prope
 }
 
 export default async function News(){
-    const res = await notion.databases.query({
-        database_id: "1d0fc1f89ce380ac9d99fde7060ea551",
-        sorts: [
-            {
-                property: "Date",
-                direction: "descending",
-            },
-        ],
-    });
-
-    const data = await res.results.map((block) => {
-        const page = block as PageObjectResponse;
-        return {
-            id: page.id,
-            properties: processProperties(page.properties),
-        }
-    });
-   
+   const data = await fetchNotionDataBase(process.env.NEWS_ID as string); 
     return (
       <>
           {data.map((item, index) => (
