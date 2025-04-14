@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Sidebar from "./_components/sidebar/sidebar";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SP } from "next/dist/shared/lib/utils";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +36,7 @@ export default function RootLayout({
         </div>
         <div className="col-span-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 scrollbar-thumb-rounded-full scrollbar-track-rounded-full overflow-y-auto h-screen">
           {children}
+          <SpeedInsights />
         </div>
       </body>
     </html>
