@@ -1,7 +1,13 @@
+type AnnotationsObject = {
+  bold?: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  strikethrough?: boolean;
+  code?: boolean;
+  color?: string;
+};
 
-
-
-export default function Text({ text, annotations }: { text: string, annotations: any }) {
+export default function Text({ text, annotations }: { text: string, annotations: AnnotationsObject }) {
     const {
       bold,
       italic,

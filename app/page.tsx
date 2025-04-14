@@ -1,15 +1,15 @@
 import Content from "@/app/_components/renderer/content";
-import Paragraph from "@/app/_components/renderer/paragraph";
 import { Suspense } from "react";
 import {LoadingBio, LoadingMisc, LoadingNews} from "./_components/home/loading";
 import News from "@/app/_components/home/news";
 import Misc from "@/app/_components/home/misc";
+import Image from "next/image";
 
 async function Bio(){
   
   return (
     <div className="flex flex-col mb-10">
-      <h1 className="text-3xl font-bold mb-3">👋Hi, I'm Eugene Lin</h1>
+      <h1 className="text-3xl font-bold mb-3">👋Hi, I&apos m Eugene Lin</h1>
         <Content API={process.env.BIO_ID}/>
     </div>
   ); 
@@ -23,15 +23,15 @@ function Background (){
           <ul className="rounded-base-100">
 
             <li className="text-lg mb-3">
-              <img src="/quantum-computing.svg" alt="quantum-computing" className="h-8 w-8 inline-block mr-2" />
+              <Image src="/quantum-computing.svg" alt="quantum-computing" className="h-8 w-8 inline-block mr-2" width={0} height={0}/>
               Fault-tolerant Quantum Computing
             </li>
             <li className="text-lg mb-3">
-              <img src="/optimization.svg" alt="optimization" className="h-8 w-8 inline-block mr-2" />
+              <Image src="/optimization.svg" alt="optimization" className="h-8 w-8 inline-block mr-2" width={0} height={0}/>
               Optimization
             </li>
             <li className="text-lg mb-3">
-              <img src="/chip.svg" alt="computer-architecture" className="h-8 w-8 inline-block mr-2" />   
+              <Image src="/chip.svg" alt="computer-architecture" className="h-8 w-8 inline-block mr-2" width={0} height={0}/>   
               Computer Architecture
             </li>
           </ul>

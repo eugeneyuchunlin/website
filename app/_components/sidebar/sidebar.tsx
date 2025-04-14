@@ -1,6 +1,7 @@
 'use client'
 import Footer from './footer';
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 
 function MenuItem({url, name} : {url: string; name: string}) {
@@ -73,7 +74,7 @@ export default function Sidebar() {
           <div className="flex flex-col justify-center mb-4">
             <div className="avatar justify-center mb-4">
               <div className="w-32 rounded-full brightness-80">
-                <img src="/avatar.jpeg" />
+                <Image src="/avatar.jpeg" alt='' fill />
               </div> 
             </div>
             <div className="text-center justify-center">

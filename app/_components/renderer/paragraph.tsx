@@ -1,6 +1,7 @@
 import Text from "@/app/_components/renderer/text";
+import { RichText } from "@/app/_components/utility/types";
 
-export default function Paragraph({ richText }: { richText: any[] }) {
+export default function Paragraph({ richText }: { richText: RichText[]}) {
   return (
     <p className="text-lg text-gray-800 dark:text-gray-200 mb-4">
         {richText.map((text, index) => {
