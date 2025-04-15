@@ -56,7 +56,7 @@ function Background (){
     )
 }
 
-
+export const runtime = 'edge';
 export default async function Home() {
   return (
     <div className="relative">
