@@ -1,7 +1,6 @@
 
 import Text from '@/app/_components/renderer/text';
 import { RichText } from '@/app/_components/utility/types';
-import { i } from 'framer-motion/client';
 
 type InlineParagraphProps = {
   richText: RichText[];

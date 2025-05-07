@@ -1,11 +1,8 @@
-import Image from "next/image";
-import { ToolBox, Education, ArrowRight } from "@carbon/icons-react";
-import { fetchNotionBlock, fetchNotionDataBase } from "@/lib/notionFetch";
-import Paragraph from "@/app/_components/renderer/paragraph";
+import { ToolBox, Education } from "@carbon/icons-react";
+import { fetchNotionDataBase } from "@/lib/notionFetch";
 import InlineParagraph from "@/app/_components/renderer/inlineParagraph";
 import { MultiSelectObject, PropertyObjectType, RichText, TimeObject } from "../_components/utility/types";
 import Content from "@/app/_components/renderer/content";
-import { kill } from "process";
 
 function Time({ time }: { time: TimeObject }) {
   return (
