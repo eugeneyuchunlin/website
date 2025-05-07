@@ -12,7 +12,7 @@ async function Bio(){
   
   return (
     <div className="flex flex-col mb-10">
-      <h1 className="text-3xl font-bold mb-3">👋Hi, I&apos m Eugene Lin</h1>
+      <h1 className="text-3xl font-bold mb-3">👋Hi, I&apos;m Eugene Lin</h1>
         <Content API={process.env.BIO_ID}/>
     </div>
   ); 

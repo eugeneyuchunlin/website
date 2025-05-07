@@ -33,6 +33,16 @@ type SelectColor =
 | "red"
   
 export type PartialSelectResponse = { id: string; name: string; color: SelectColor }
+
+export type TimeObject = {
+  start: string;
+  end: string | null;
+}
+
+export type MultiSelectObject = {
+  name: string;
+  color: SelectColor;
+}
   
 export type PropertyObjectType = 
     | string 
@@ -43,6 +53,8 @@ export type PropertyObjectType =
     | RichText[] 
     | RichTextItemResponse[]
     | PartialSelectResponse[]
+    | TimeObject
+    | MultiSelectObject[]
     | string[]
 
 export type PropertyObjectMap = {
