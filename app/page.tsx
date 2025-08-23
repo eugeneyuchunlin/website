@@ -5,6 +5,7 @@ import News from "@/app/_components/home/news";
 import Misc from "@/app/_components/home/misc";
 import Image from "next/image";
 
+export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 export const revalidate = 60; // 1 minute
 
@@ -56,7 +57,6 @@ function Background (){
     )
 }
 
-export const runtime = 'edge';
 export default async function Home() {
   return (
     <div className="relative">
