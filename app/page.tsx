@@ -70,7 +70,7 @@ export default async function Home() {
 
         <div className="flex flex-col">
           <h1 className="text-3xl font-bold">📰News</h1>
-          <div className="flex flex-col mb-10">
+          <div className="flex flex-col mb-10 h-96 overflow-y-scroll">
             <Suspense fallback={<LoadingNews />}>
               <News/>
             </Suspense>
