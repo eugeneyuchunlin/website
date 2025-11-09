@@ -12,7 +12,7 @@ async function Bio(){
   
   return (
     <div className="flex flex-col mb-10">
-      <h1 className="text-3xl font-bold mb-3">👋Hi, I&apos m Eugene Lin</h1>
+      <h1 className="text-3xl font-bold mb-3">👋Hi, I&apos;m Eugene Lin</h1>
         <Content API={process.env.BIO_ID}/>
     </div>
   ); 
@@ -45,7 +45,7 @@ function Background (){
           <ul className="list-inside list-image-[url(/book.svg)]">
             <li className="text-lg mb-3">
               {/* <img src="/book.svg" alt="book" className="h-5 w-5 inline-block mr-2" /> */}
-              Ph.D. in Computer Sciences, <br />University of Wisconsin-Madison (2025-present)
+              Ph.D. in Computer Sciences <br />University of Wisconsin-Madison (2025-present)
             </li>
             <li className="text-lg mb-3">M.S. in Computer Science <br /> Texas A&M University (2023-2025)</li>
             <li className="text-lg mb-3">B.S. in Computer Science and Information Engineering <br /> National Cheng Kung University (2017-2022)</li>
