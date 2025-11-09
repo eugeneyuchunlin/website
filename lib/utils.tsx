@@ -1,4 +1,4 @@
-import type { RichText, PropertyObjectType, PartialSelectResponse } from "@/app/_components/utility/types";
+import type { RichText, PropertyObjectType, PartialSelectResponse, TimeObject } from "@/app/_components/utility/types";
 import { RichTextItemResponse, PageObjectResponse} from "@notionhq/client/build/src/api-endpoints";
 
 
@@ -15,13 +15,21 @@ export function processProperties(prop: PageObjectResponse["properties"]) {
         } else if (value.type === "select") {
             properties[key] = value.select?.name;
         } else if (value.type === "multi_select") {
-            properties[key] = value.multi_select.map((text: PartialSelectResponse) => text.name);
+            properties[key] = value.multi_select.map((text: PartialSelectResponse) => {
+                return {
+                    name: text.name,
+                    color: text.color,
+                }
+            });
         } else if (value.type === "checkbox") {
             properties[key] = value.checkbox;
         } else if (value.type === "number") {
             properties[key] = value.number;
         } else if (value.type === "date") {
-            properties[key] = value.date?.start;
+            properties[key] = {
+                start: value.date?.start,
+                end: value.date?.end,
+            } as TimeObject;
         }
     }
     return properties;

@@ -22,16 +22,15 @@ export const fetchNotionBlock = cache(async (id: string | undefined) => {
     return data;
   });
 
+type sortType = {
+    property: string;
+    direction: "ascending" | "descending";
+}
 
-export const fetchNotionDataBase = cache(async (id: string)  => {
+export const fetchNotionDataBase = cache(async (id: string, sort?: sortType[])  => {
     const res = await notion.databases.query({
         database_id: id,
-        sorts: [
-            {
-                property: "Date",
-                direction: "descending",
-            },
-        ],
+        sorts: sort,
     });
 
     const data = await res.results.map((block) => {
