@@ -4,7 +4,6 @@ import InlineParagraph from "@/app/_components/renderer/inlineParagraph";
 import { MultiSelectObject, PropertyObjectType, RichText, TimeObject } from "../_components/utility/types";
 import Content from "@/app/_components/renderer/content";
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 export const revalidate = 60;
 
