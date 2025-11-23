@@ -1,6 +1,6 @@
-import { fetchNotionDataBase } from "@/lib/notionFetch";
 import Paragraph from "../renderer/paragraph";
 import type { RichText, PropertyObjectType, TimeObject} from "@/app/_components/utility/types";
+import { fetchNotionDataSource } from "@/lib/notionFetch";
 
 
 function NewsItem({date, rich_text}: {date: PropertyObjectType, rich_text: PropertyObjectType}) {
@@ -19,7 +19,7 @@ function NewsItem({date, rich_text}: {date: PropertyObjectType, rich_text: Prope
 }
 
 export default async function News(){
-   const data = await fetchNotionDataBase(process.env.NEWS_ID as string, [{'property': 'Date', direction: 'descending'}]); 
+  const data = await fetchNotionDataSource(process.env.NEWS_ID as string, [{'property': 'Date', direction: 'descending'}]); 
     return (
       <>
           {data.map((item, index) => (

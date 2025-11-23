@@ -1,4 +1,4 @@
-import { fetchNotionDataBase } from "@/lib/notionFetch";
+import { fetchNotionDataSource } from "@/lib/notionFetch";
 import { PropertyObjectType, TimeObject } from "../_components/utility/types";
 
 function Post({data}: {data: Record<string, PropertyObjectType>}){
@@ -9,11 +9,6 @@ const COLOR_BADGE_MAP: Record<string, string> = {
   "Misc": "badge-secondary",
   "Life": "badge-accent",
   "Work": "badge-info",
-}
-
-console.log(typeof data);
-if (!data.Public){
-  return <></>
 }
 
 return (
@@ -49,7 +44,16 @@ return (
 }
 
 export default async function Home() {
-  const data = await fetchNotionDataBase(process.env.BLOG_ID as string);
+  const data = await fetchNotionDataSource(
+    process.env.BLOG_ID as string,
+    [],
+    {
+      property: "Public",
+      checkbox: {
+        equals: true
+      }
+    }
+  );
   console.log(data);
 
   return (

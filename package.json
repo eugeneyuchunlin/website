@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@carbon/icons-react": "^11.57.0",
-    "@notionhq/client": "^2.3.0",
-    "@opennextjs/cloudflare": "^1.11.1",
+    "@notionhq/client": "^5.4.0",
+    "@opennextjs/cloudflare": "^1.13.1",
     "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^12.6.2",
     "marked": "^15.0.7",
@@ -34,6 +34,6 @@
     "eslint-config-next": "15.2.4",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "wrangler": "^4.46.0"
+    "wrangler": "^4.50.0"
   }
 }

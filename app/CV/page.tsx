@@ -1,5 +1,5 @@
 import { ToolBox, Education } from "@carbon/icons-react";
-import { fetchNotionDataBase } from "@/lib/notionFetch";
+import { fetchNotionDataSource } from "@/lib/notionFetch";
 import InlineParagraph from "@/app/_components/renderer/inlineParagraph";
 import { MultiSelectObject, PropertyObjectType, RichText, TimeObject } from "../_components/utility/types";
 import Content from "@/app/_components/renderer/content";
@@ -52,7 +52,7 @@ function TimeLineBlock({ item }: { item: {
 
 async function TimeLine() {
   
-  const exp = await fetchNotionDataBase(process.env.EXP_ID as string, [
+  const exp = await fetchNotionDataSource(process.env.EXP_ID as string, [
     {
       property: "Time",
       direction: "descending"
@@ -122,7 +122,7 @@ function Tags({tags} : {tags : MultiSelectObject []}){
 }
 
 async function Publications() {
-  const pubs = await fetchNotionDataBase(process.env.PUB_ID as string, [
+  const pubs = await fetchNotionDataSource(process.env.PUB_ID as string, [
     {
       property: "Year",
       direction: "descending"
@@ -162,7 +162,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 async function Honors(){
-  const honors = await fetchNotionDataBase(process.env.HONORS_ID as string, [
+  const honors = await fetchNotionDataSource(process.env.HONORS_ID as string, [
     {
       property: "Year",
       direction: "descending"
