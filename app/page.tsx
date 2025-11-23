@@ -5,6 +5,7 @@ import News from "@/app/_components/home/news";
 import Misc from "@/app/_components/home/misc";
 import Image from "next/image";
 
+export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 export const revalidate = 60; // 1 minute
 
@@ -56,7 +57,6 @@ function Background (){
     )
 }
 
-export const runtime = 'edge';
 export default async function Home() {
   return (
     <div className="relative">
@@ -70,7 +70,7 @@ export default async function Home() {
 
         <div className="flex flex-col">
           <h1 className="text-3xl font-bold">📰News</h1>
-          <div className="flex flex-col mb-10">
+          <div className="flex flex-col mb-10 h-96 overflow-y-scroll">
             <Suspense fallback={<LoadingNews />}>
               <News/>
             </Suspense>
