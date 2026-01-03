@@ -85,9 +85,9 @@ export default function Sidebar() {
           
           <ul className="menu rounded-box w-56">
             <MenuItem url='/' name='Home' />
-            <MenuItem url='/CV' name='CV' />
-            <MenuItem url='/Blog' name='Blog' />
-            <MenuItem url='/Projects' name='Projects' />
+            <MenuItem url='/cv' name='CV' />
+            <MenuItem url='/blog' name='Blog' />
+            <MenuItem url='/projects' name='Projects' />
           </ul>
         </div>
 
