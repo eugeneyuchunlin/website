@@ -1,8 +1,7 @@
-import { fetchNotionDataSource } from "@/lib/notionFetch";
+import { fetchNotionDataSource, fetchNotionBlock } from "@/lib/notionFetch";
 import { PropertyObjectType, TimeObject } from "../_components/utility/types";
 
-function Post({data}: {data: Record<string, PropertyObjectType>}){
-
+async function Post({data}: {data: Record<string, PropertyObjectType>}){
 
 const COLOR_BADGE_MAP: Record<string, string> = {
   "Research": "badge-primary",
@@ -56,12 +55,24 @@ export default async function Home() {
   );
   console.log(data);
 
+  data.map((item) => {
+    fetchNotionBlock(item.id).then((blocks) => {
+      console.log(blocks);
+    });
+    console.log(item.properties);
+  });
+
   return (
     <>
-      <div className="flex flex-col flex-row p-4">
+    {/* Coming Soon! */}
+      {/* <div className="flex flex-col flex-row p-4">
         {data.map((item, index) => (
           <Post key={index} data={item.properties} />
         ))}
+      </div> */}
+
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <h1 className="text-3xl font-bold mb-3 p-10">🚧 Blog Coming Soon! 🚧</h1>
       </div>
     </>
   );
