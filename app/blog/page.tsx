@@ -1,6 +1,9 @@
 import { fetchNotionDataSource, fetchNotionBlock } from "@/lib/notionFetch";
 import { ImageObject, PropertyObjectType, TimeObject } from "../_components/utility/types";
 
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
 async function Post({id, data}: {id: string, data: Record<string, PropertyObjectType>}){
   const COLOR_BADGE_MAP: Record<string, string> = {
     "Research": "badge-primary",
