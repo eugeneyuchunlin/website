@@ -12,6 +12,17 @@ export type RichText = {
     };
     href: string | null;
   };
+
+export type ImageObject = {
+  type: "file" | "external";
+  file?: {
+    url: string;
+    expiry_time: string;
+  };
+  external?: {
+    url: string;
+  };
+}
   
 export type Block = {
   id: string;

@@ -3,6 +3,7 @@ import { cache } from 'react';
 import { processRichText, processProperties } from '@/lib/utils';
 import type { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import type { QueryDataSourceParameters } from "@notionhq/client/build/src/api-endpoints";
+import { ImageObject } from "@/app/_components/utility/types";
 
 export const fetchNotionBlock = cache(async (id: string | undefined) => {
     const response = await notion.blocks.children.list({
@@ -16,6 +17,7 @@ export const fetchNotionBlock = cache(async (id: string | undefined) => {
                 id: block.id,
                 type: block.type,
                 rich_text: 'paragraph' in block ? processRichText(block.paragraph.rich_text || []) : [],
+                image: 'image' in block ? block.image as ImageObject : undefined
             };
         }
         return null
