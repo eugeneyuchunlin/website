@@ -58,7 +58,8 @@ async function Post({id, data}: {id: string, data: Record<string, PropertyObject
       <a className="card bg-base-100 w-96 shadow-sm m-4 cursor-pointer hover:shadow-lg transition-shadow duration-300" href={`/blog/${id}`}>
       <figure>
         <img
-          src={image_url !== "" ? image_url : undefined}
+          // src={image_url !== "" ? image_url : undefined}
+          src={`/api/notion-image?url=${encodeURIComponent(image_url)}`}
           // alt={data.Name as string} 
           className="w-full h-48 rounded-lg shadow-lg object-cover mx-auto"/>
       </figure>
