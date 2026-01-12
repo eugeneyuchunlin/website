@@ -14,7 +14,7 @@ async function Post({id, data}: {id: string, data: Record<string, PropertyObject
   var image_url = ""
   var first_paragraph = ""
 
-  await fetchNotionBlock(id).then((blocks) => {
+  await fetchNotionBlock(id, 10).then((blocks) => {
     for (const block of blocks) {
       if(block !== null && block.type === "paragraph") {
         if (first_paragraph === "" && block.rich_text.length > 0) { 

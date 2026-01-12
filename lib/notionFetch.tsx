@@ -5,10 +5,10 @@ import type { PageObjectResponse } from '@notionhq/client/build/src/api-endpoint
 import type { QueryDataSourceParameters } from "@notionhq/client/build/src/api-endpoints";
 import { ImageObject } from "@/app/_components/utility/types";
 
-export const fetchNotionBlock = cache(async (id: string | undefined) => {
+export const fetchNotionBlock = cache(async (id: string | undefined, page_size: number | undefined) => {
     const response = await notion.blocks.children.list({
         block_id: id ?? '',
-        page_size: 100,
+        page_size: page_size ?? 100,
     });
 
     const data = response.results.map((block) => {
@@ -49,4 +49,17 @@ export const fetchNotionDataBase = cache(async (id: string)  => {
     });
 
     return res;
+});
+
+export const fetchNotionPage = cache(async (id: string)  => {
+    const res = await notion.pages.retrieve({
+        page_id: id,
+    });
+
+    const page = res as PageObjectResponse;
+
+    return {
+        id: page.id,
+        properties: processProperties(page.properties)
+    }
 });
